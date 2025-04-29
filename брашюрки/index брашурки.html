@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Летние курсы в Оксфорде - Aqildos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Poppins", Arial, sans-serif;
+            line-height: 1.5;
+            color: #333;
+            background: #fff;
+        }
+
+        .booklet-container {
+            width: 315mm; /* Increased from 210mm by 50% */
+            margin: 5mm auto; /* Reduced from 10mm */
+            padding: 15mm; /* Increased from 10mm */
+            background: #fff;
+        }
+
+        /* Header */
+        .booklet-header {
+            text-align: center;
+            padding: 25px 0; /* Increased from 20px */
+            background: linear-gradient(135deg, #11395f, #3cb3b7);
+            color: white;
+            border-radius: 8px;
+        }
+
+        .booklet-header img {
+            width: 100px;
+            vertical-align: middle;
+            margin-right: 12px; /* Increased from 10px */
+        }
+
+        .booklet-header h1 {
+            font-size: 26px; /* Increased from 24px */
+            font-weight: 700;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        /* Why Us Section */
+        .why-us {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px; /* Increased from 15px */
+            padding: 25px 0; /* Increased from 20px */
+        }
+
+        .why-us-item {
+            background: #f8fafc;
+            padding: 20px; /* Increased from 15px */
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .why-us-item h3 {
+            font-size: 18px; /* Increased from 16px */
+            color: #11395f;
+            margin-bottom: 12px; /* Increased from 10px */
+        }
+
+        .why-us-item p {
+            font-size: 13px; /* Increased from 12px */
+            color: #666;
+            margin-bottom: 10px; /* Increased from 8px */
+        }
+
+        .why-us-item ul {
+            list-style: none;
+            font-size: 12px; /* Increased from 11px */
+            color: #666;
+            margin-bottom: 10px; /* Increased from 8px */
+        }
+
+        .why-us-item ul li {
+            margin-bottom: 5px; /* Increased from 4px */
+        }
+
+        .quote {
+            font-style: italic;
+            font-size: 11px; /* Increased from 10px */
+            color: #666;
+            background: #f0f4f8;
+            padding: 6px; /* Increased from 5px */
+            border-radius: 4px;
+        }
+
+        /* Program Sections */
+        .program-section {
+            margin: 25px 0; /* Increased from 20px */
+            padding: 20px; /* Increased from 15px */
+            background: #f0f4f8;
+            border-radius: 8px;
+        }
+
+        .section-title {
+            font-size: 22px; /* Increased from 20px */
+            font-weight: 700;
+            color: #3cb3b7;
+            margin-bottom: 20px; /* Increased from 15px */
+            text-align: center;
+        }
+
+        .includes {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px; /* Increased from 8px */
+            margin-bottom: 20px; /* Increased from 15px */
+        }
+
+        .includes span {
+            background: #eda90c;
+            color: white;
+            padding: 6px 14px; /* Increased from 5px 12px */
+            border-radius: 15px;
+            font-size: 13px; /* Increased from 12px */
+            font-weight: 600;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px; /* Increased from 15px */
+        }
+
+        .text-only-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px; /* Increased from 10px */
+        }
+
+        .info-card {
+            background: #fff;
+            padding: 12px; /* Increased from 10px */
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-card h3 {
+            font-size: 15px; /* Increased from 14px */
+            color: #11395f;
+            margin-bottom: 12px; /* Increased from 10px */
+        }
+
+        .info-card ul {
+            list-style: none;
+            font-size: 12px; /* Increased from 11px */
+        }
+
+        .info-card ul li {
+            margin-bottom: 6px; /* Increased from 5px */
+            position: relative;
+            padding-left: 18px; /* Increased from 15px */
+        }
+
+        .info-card ul li::before {
+            content: "\f058";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: #3cb3b7;
+            position: absolute;
+            left: 0;
+            top: 2px;
+            font-size: 11px; /* Increased from 10px */
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px; /* Increased from 10px */
+        }
+
+        .course-card {
+            background: #f8fafc;
+            padding: 12px; /* Increased from 10px */
+            border-radius: 6px;
+            min-height: 110px; /* Increased from 100px */
+        }
+
+        .course-card h4 {
+            font-size: 12px; /* Increased from 11px */
+            color: #3cb3b7;
+            margin-bottom: 6px; /* Increased from 5px */
+            line-height: 1.3;
+        }
+
+        .course-card p {
+            font-size: 10px; /* Increased from 9px */
+            color: #333;
+            margin-bottom: 6px; /* Increased from 5px */
+            line-height: 1.4;
+        }
+
+        .course-card ul {
+            font-size: 10px; /* Increased from 9px */
+            color: #333;
+        }
+
+        .course-card ul li {
+            margin-bottom: 4px; /* Increased from 3px */
+            padding-left: 0;
+        }
+
+        .course-card ul li::before {
+            display: none;
+        }
+
+        .price {
+            color: #eda90c;
+            font-weight: 700;
+            font-size: 11px; /* Increased from 10px */
+        }
+
+        .students-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px; /* Increased from 10px */
+            margin-top: 12px; /* Increased from 10px */
+        }
+
+        .students-gallery img {
+            width: 100%;
+            height: 120px; /* Increased from 100px */
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .highlight-box {
+            background: #f8fafc;
+            padding: 12px; /* Increased from 10px */
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 12px; /* Increased from 10px */
+        }
+
+        .highlight-box h3 {
+            font-size: 15px; /* Increased from 14px */
+            color: #3cb3b7;
+            margin-bottom: 10px; /* Increased from 8px */
+        }
+
+        .highlight-box p {
+            font-size: 12px; /* Increased from 11px */
+            color: #666;
+            font-style: italic;
+        }
+
+        /* Footer */
+        .booklet-footer {
+            text-align: center;
+            padding: 25px 0; /* Increased from 20px */
+            background: #11395f;
+            color: white;
+            border-radius: 8px;
+            margin-top: 25px; /* Increased from 20px */
+        }
+
+        .booklet-footer p {
+            font-size: 13px; /* Increased from 12px */
+            margin: 6px 0; /* Increased from 5px */
+        }
+
+        .booklet-footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 18px; /* Increased from 16px */
+            margin: 0 12px; /* Increased from 10px */
+            text-decoration: none;
+        }
+
+        .qr-code img {
+            width: 120px;
+            height: 120px;
+            border-radius: 6px;
+            background: white;
+            padding: 10px;
+            margin-top: 12px; /* Increased from 10px */
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+            }
+
+            .booklet-container {
+                width: 100%; /* Maximize A4 width */
+                margin: 0;
+                padding: 0;
+            }
+
+            .no-print {
+                display: none;
+            }
+
+            @page {
+                size: A4;
+                margin: 10mm;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .why-us, .info-grid, .course-grid, .students-gallery, .text-only-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .booklet-header h1 {
+                font-size: 22px; /* Increased from 20px */
+            }
+
+            .section-title {
+                font-size: 20px; /* Increased from 18px */
+            }
+
+            .students-gallery img {
+                height: 140px; /* Increased from 120px for mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="booklet-container">
+        <!-- Header -->
+        <header class="booklet-header">
+            <img src="https://raw.githubusercontent.com/SuleymanovTahir/-/refs/heads/main/img/logo/without text/logo_white.png" alt="Aqildos Logo">
+            <h1>Летняя языковая школа в Оксфорде</h1>
+        </header>
+
+        <!-- Why Us -->
+        <section class="program-section">
+            <div class="section-title">Почему Aqildos?</div>
+            <div class="why-us">
+                <div class="why-us-item">
+                    <h3><i class="fas fa-university"></i> Оксфорд</h3>
+                    <p>Курсы в Оксфорде — центре академической культуры.</p>
+                    <ul>
+                        <li>Визиты в колледжи</li>
+                        <li>Спикеры и мероприятия</li>
+                        <li>Час до Лондона</li>
+                    </ul>
+                    <div class="quote">"История знаний оживает!"</div>
+                </div>
+                <div class="why-us-item">
+                    <h3><i class="fas fa-thumbs-up"></i> 97% довольны</h3>
+                    <p>Студенты рекомендуют и возвращаются.</p>
+                    <ul>
+                        <li>Индивидуальная забота</li>
+                        <li>Живое обучение</li>
+                        <li>Поддержка 24/7</li>
+                    </ul>
+                    <div class="quote">"Лучший опыт!"</div>
+                </div>
+                <div class="why-us-item">
+                    <h3><i class="fas fa-lightbulb"></i> Инновации</h3>
+                    <p>Учим за рамками учебников.</p>
+                    <ul>
+                        <li>Новые темы еженедельно</li>
+                        <li>Разговорный английский</li>
+                        <li>Выездные занятия</li>
+                    </ul>
+                    <div class="quote">"Уроки вдохновляют!"</div>
+                </div>
+                <div class="why-us-item">
+                    <h3><i class="fas fa-globe"></i> Мир без границ</h3>
+                    <p>Студенты из 60+ стран.</p>
+                    <ul>
+                        <li>Друзья по всему миру</li>
+                        <li>Культурное погружение</li>
+                        <li>Естественный английский</li>
+                    </ul>
+                    <div class="quote">"Границы исчезают!"</div>
+                </div>
+                <div class="why-us-item">
+                    <h3><i class="fas fa-camera"></i> Активности</h3>
+                    <p>Культура и спорт.</p>
+                    <ul>
+                        <li>Лодки по Темзе</li>
+                        <li>Экскурсии</li>
+                        <li>Квесты и кино</li>
+                    </ul>
+                    <div class="quote">"Каждый день — приключение!"</div>
+                </div>
+                <div class="why-us-item">
+                    <h3><i class="fas fa-user-shield"></i> Безопасность</h3>
+                    <p>Комфорт и забота.</p>
+                    <ul>
+                        <li>Кураторы 24/7</li>
+                        <li>Полное сопровождение</li>
+                        <li>Медподдержка</li>
+                    </ul>
+                    <div class="quote">"Как дома!"</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Juniors (9-15 years) -->
+        <section class="program-section" id="juniors">
+            <div class="section-title">Юниоры (9-15 лет)</div>
+            <div class="includes">
+                <span>Обучение</span><span>Проживание</span><span>Питание</span>
+                <span>Мероприятия</span><span>Страховка</span><span>Трансфер</span>
+            </div>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Проживание</h3>
+                    <ul>
+                        <li>Резиденция или семья, 1-3-местные комнаты</li>
+                        <li>Общая или личная ванная</li>
+                        <li>Коммунальные зоны: общие комнаты, кухни, зеленые пространства</li>
+                        <li>Мальчики и девочки живут отдельно</li>
+                        <li>Постельное белье, полотенца, прачечная, Wi-Fi</li>
+                    </ul>
+                    <div class="students-gallery">
+                        <img src="https://raw.githubusercontent.com/SuleymanovTahir/-/refs/heads/main/img/accomodation/junior/St-Clares-Oxford-August-2023-Navy-Studios-School-Photography074of212-1.jpg" alt="Junior Room 1">
+                        <img src="https://raw.githubusercontent.com/SuleymanovTahir/-/refs/heads/main/img/accomodation/teenagers/St-Clares-Oxford-June-2023-Navy-Studios-School-Photography-054of250.jpg" alt="Junior Room 2">
+                    </div>
+                </div>
+                <div class="info-card">
+                    <h3>Курсы</h3>
+                    <div class="course-grid">
+                        <div class="course-card">
+                            <h4>Активный английский (2 нед)</h4>
+                            <p>A2-C2, 16.5 ч/нед, доп. занятия: Oxford Explorer, Media, Искусство</p>
+                            <ul>
+                                <li>Июль: 9, 16, 23, 30; Авг: 6, 13</li>
+                                <li><span class="price">£3,735</span></li>
+                            </ul>
+                        </div>
+                        <div class="course-card">
+                            <h4>Активный английский (3 нед)</h4>
+                            <p>A2-C2, 16.5 ч/нед, доп. занятия: Oxford Explorer, Media, Искусство</p>
+                            <ul>
+                                <li>Июль: 9, 16, 23; Авг: 6</li>
+                                <li><span class="price">£5,075</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <h3>Экскурсии</h3>
+                    <ul>
+                        <li>1 экскурсия/нед включена, доп. за плату</li>
+                        <li>Лондон: London Eye, Тауэр, Биг Бен, круиз по Темзе, Harrods</li>
+                        <li>Другие: Виндзорский замок, Стратфорд-на-Эйвоне, дворец Бленхейм</li>
+                    </ul>
+                    <div class="students-gallery">
+                        <img src="https://raw.githubusercontent.com/SuleymanovTahir/-/refs/heads/main/img/достопримечательности/big%20ben.jpg" alt="Big Ben">
+                        <img src="https://raw.githubusercontent.com/SuleymanovTahir/-/refs/heads/main/img/достопримечательности/crouse%20temza.webp" alt="Thames Cruise">
+                    </div>
+                </div>
+                <div class="text-only-grid">
+                    <div class="info-card">
+                        <h3>Активности</h3>
+                        <ul>
+                            <li>Спорт: футбол, теннис, волейбол, бадминтон, баскетбол</li>
+                            <li>Творчество: поделки, театр</li>
+                            <li>Развлечения: караоке, кино, квизы, настольный теннис, танцы</li>
+                            <li>Доп. занятия: Oxford Explorer (9-12), Media (13-15), футбол, теннис, гольф</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3>Полезно знать</h3>
+                        <ul>
+                            <li>Питание: 3 раза в день, перекусы в кафе</li>
+                            <li>Поддержка: круглосуточная, менеджеры, медсестра</li>
+                            <li>Безопасность: высокий коэффициент персонала, комендантский час</li>
+                            <li>Дополнительно: гостевые спикеры, сессии о поступлении в вузы</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Teenagers (15-17 years) -->
+        <section class="program-section" id="teenagers">
+            <div class="section-title">Подростки (15-17 лет)</div>
+            <div class="includes">
+                <span>Обучение</span><span>Проживание</span><span>Питание</span>
+                <span>Мероприятия</span><span>Страховка</span>
+            </div>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Проживание</h3>
+                    <ul>
+                        <li>Резиденция или семья, 1-3-местные комнаты</li>
+                        <li>Общая или личная ванная</li>
+                        <li>Коммунальные зоны: общие комнаты, кухни, зеленые пространства</li>
+                        <li>Мальчики и девочки живут отдельно</li>
+                        <li>Постельное белье, полотенца, прачечная, Wi-Fi</li>
+                    </ul>
+                    <div class="students-gallery">
+                        <img src="https://raw.githubusercontent.com/SuleymanovTahir/-/refs/heads/main/img/accomodation/junior/St-Clares-Oxford-August-2023-Navy-Studios-School-Photography078of212.jpg" alt="Teen Room 1">
+                        <img src="https://raw.githubusercontent.com/SuleymanovTahir/-/refs/heads/main/img/accomodation/teenagers/St-Clares-Oxford-June-2023-Navy-Studios-School-Photography-142of250-1.jpg" alt="Teen Room 2">
+                    </div>
+                </div>
+                <div class="info-card">
+                    <h3>Курсы</h3>
+                    <div class="course-grid">
+                        <div class="course-card">
+                            <h4>Интерактивный английский (2 нед)</h4>
+                            <p>A2-C2, 19.25 ч/нед, макс. 15 чел</p>
+                            <ul>
+                                <li>Июнь: 22, 29; Июль: 6, 13, 20, 27; Авг: 3, 10</li>
+                                <li><span class="price">£2,595</span></li>
+                            </ul>
+                        </div>
+                        <div class="course-card">
+                            <h4>Интерактивный английский (3 нед)</h4>
+                            <p>A2-C2, 19.25 ч/нед, макс. 15 чел</p>
+                            <ul>
+                                <li>Июнь: 22, 29; Июль: 6, 13, 20; Авг: 3</li>
+                                <li><span class="price">£3,645</span></li>
+                            </ul>
+                        </div>
+                        <div class="course-card">
+                            <h4>Интерактивный английский (4 нед)</h4>
+                            <p>A2-C2, 19.25 ч/нед, макс. 15 чел</p>
+                            <ul>
+                                <li>Июнь: 22, 29; Июль: 6, 13</li>
+                                <li><span class="price">£4,685</span></li>
+                            </ul>
+                        </div>
+                        <div class="course-card">
+                            <h4>Интенсивная подготовка к экзаменам (3 нед)</h4>
+                            <p>B1-C2, 22.9 ч/нед, макс. 12 чел</p>
+                            <ul>
+                                <li>Июнь: 22; Июль: 6</li>
+                                <li><span class="price">£4,345</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <h3>Экскурсии</h3>
+                    <ul>
+                        <li>1 экскурсия/нед включена, доп. за плату</li>
+                        <li>Лондон: London Eye, Тауэр, Биг Бен, круиз по Темзе, Harrods, Covent Garden</li>
+                        <li>Другие: Виндзорский замок, Стратфорд-на-Эйвоне, замок Уорик, дворец Бленхейм</li>
+                    </ul>
+                    <div class="students-gallery">
+                        <img src="https://raw.githubusercontent.com/SuleymanovTahir/-/refs/heads/main/img/достопримечательности/tower%20of%20london.webp" alt="Tower of London">
+                        <img src="https://raw.githubusercontent.com/SuleymanovTahir/-/refs/heads/main/img/достопримечательности/Виндзорский%20замок.jpg" alt="Windsor Castle">
+                    </div>
+                </div>
+                <div class="text-only-grid">
+                    <div class="info-card">
+                        <h3>Активности</h3>
+                        <ul>
+                            <li>Спорт: футбол, бадминтон, волейбол, теннис, баскетбол, пант</li>
+                            <li>Творчество: поделки</li>
+                            <li>Развлечения: квизы, настольный теннис, караоке, танцы, кино</li>
+                            <li>Доп. занятия: Искусство и цифровой дизайн, Бизнес в Оксфорде</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3>Полезно знать</h3>
+                        <ul>
+                            <li>Питание: 3 раза в день, перекусы в кафе</li>
+                            <li>Поддержка: круглосуточная, менеджеры, медсестра</li>
+                            <li>Безопасность: высокий коэффициент персонала, комендантский час</li>
+                            <li>Дополнительно: гостевые спикеры, сессии о поступлении в вузы</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Adults (18+ years) -->
+        <section class="program-section" id="adults">
+            <div class="section-title">Взрослые (18+ лет)</div>
+            <div class="includes">
+                <span>Обучение</span><span>Проживание</span><span>Обед</span>
+                <span>Мероприятия</span><span>Страховка</span>
+            </div>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Проживание</h3>
+                    <ul>
+                        <li>Резиденция или семья, 1-2-местные комнаты</li>
+                        <li>Общая или личная ванная</li>
+                        <li>Коммунальные зоны: кухня, общие комнаты, столовые</li>
+                        <li>Постельное белье, полотенца, прачечная, Wi-Fi</li>
+                    </ul>
+                    <div class="students-gallery">
+                        <img src="https://raw.githubusercontent.com/SuleymanovTahir/-/refs/heads/main/img/accomodation/adults/177-900x642-bedroom.jpg" alt="Adult Room 1">
+                        <img src="https://raw.githubusercontent.com/SuleymanovTahir/-/refs/heads/main/img/accomodation/adults/177-900x642-lounge.jpg" alt="Adult Room 2">
+                        <img src="https://raw.githubusercontent.com/SuleymanovTahir/-/refs/heads/main/img/accomodation/adults/DSC_0579v2.jpg" alt="Adult Room 3">
+                        <img src="https://raw.githubusercontent.com/SuleymanovTahir/-/refs/heads/main/img/accomodation/adults/Logan-Lounge-900x642-1.jpg" alt="Adult Room 4">
+                        <img src="https://raw.githubusercontent.com/SuleymanovTahir/-/refs/heads/main/img/accomodation/adults/STCL_5784-900x642-1.jpg" alt="Adult Room 5">
+                    </div>
+                    <div class="highlight-box">
+                        <h3>Глобальное сообщество</h3>
+                        <p>"Присоединяйтесь к студентам из 60+ стран и откройте мир без границ!"</p>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <h3>Курсы</h3>
+                    <div class="course-grid">
+                        <div class="course-card">
+                            <h4>Английский для жизни (2 нед)</h4>
+                            <p>A2-C2, 13.75 ч/нед, макс. 15 чел</p>
+                            <ul>
+                                <li>Июнь-Авг</li>
+                                <li><span class="price">£1,572</span></li>
+                            </ul>
+                        </div>
+                        <div class="course-card">
+                            <h4>Английский для жизни (3 нед)</h4>
+                            <p>A2-C2, 13.75 ч/нед, макс. 15 чел</p>
+                            <ul>
+                                <li>Июнь-Авг</li>
+                                <li><span class="price">£2,233</span></li>
+                            </ul>
+                        </div>
+                        <div class="course-card">
+                            <h4>Английский для жизни + Plus (2 нед)</h4>
+                            <p>A2-C2, 19.25 ч/нед, макс. 12 чел</p>
+                            <ul>
+                                <li>Июнь-Авг</li>
+                                <li><span class="price">£1,764</span></li>
+                            </ul>
+                        </div>
+                        <div class="course-card">
+                            <h4>Английский для жизни + Plus (3 нед)</h4>
+                            <p>A2-C2, 19.25 ч/нед, макс. 12 чел</p>
+                            <ul>
+                                <li>Июнь-Авг</li>
+                                <li><span class="price">£2,521</span></li>
+                            </ul>
+                        </div>
+                        <div class="course-card">
+                            <h4>Английский для бизнеса (2 нед)</h4>
+                            <p>B2-C2, 19.25 ч/нед, макс. 6 чел</p>
+                            <ul>
+                                <li>Июнь-Июль</li>
+                                <li><span class="price">£1,862</span></li>
+                            </ul>
+                        </div>
+                        <div class="course-card">
+                            <h4>Английский для юриспруденции (2 нед)</h4>
+                            <p>B2-C2, 19.25 ч/нед, макс. 6 чел</p>
+                            <ul>
+                                <li>Июнь-Июль</li>
+                                <li><span class="price">£1,862</span></li>
+                            </ul>
+                        </div>
+                        <div class="course-card">
+                            <h4>Английский для экзаменов (3 нед)</h4>
+                            <p>B1-C2, 19.25 ч/нед, макс. 12 чел</p>
+                            <ul>
+                                <li>Июнь-Июль</li>
+                                <li><span class="price">£2,521</span></li>
+                            </ul>
+                        </div>
+                        <div class="course-card">
+                            <h4>Английский в Оксфорде 30+ (2 нед)</h4>
+                            <p>B1-C2, 13.75 ч/нед, мин. возраст 30, макс. 8 чел</p>
+                            <ul>
+                                <li>Июнь-Июль</li>
+                                <li><span class="price">£2,618</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <h3>Экскурсии</h3>
+                    <ul>
+                        <li>1 экскурсия/нед включена, доп. за плату</li>
+                        <li>Лондон: London Eye, Тауэр, Биг Бен, круиз по Темзе, Harrods</li>
+                        <li>Другие: Виндзорский замок, Стратфорд-на-Эйвоне, замок Уорик</li>
+                    </ul>
+                    <div class="students-gallery">
+                        <img src="https://raw.githubusercontent.com/SuleymanovTahir/-/refs/heads/main/img/достопримечательности/uk%20parlament.webp" alt="Parliament">
+                        <img src="https://raw.githubusercontent.com/SuleymanovTahir/-/refs/heads/main/img/достопримечательности/Covent%20Garden.jpg" alt="Covent Garden">
+                        <img src="https://raw.githubusercontent.com/SuleymanovTahir/-/refs/heads/main/img/достопримечательности/замок%20Уорик,%20дворец%20Бленхейм.webp" alt="Warwick Castle and Blenheim Palace">
+                        <img src="https://raw.githubusercontent.com/SuleymanovTahir/-/refs/heads/main/img/достопримечательности/harrods.jpg" alt="Harrods">
+                    </div>
+                </div>
+                <div class="text-only-grid">
+                    <div class="info-card">
+                        <h3>Активности</h3>
+                        <ul>
+                            <li>Спорт: пант, верховая езда, метание топоров</li>
+                            <li>Культурные мероприятия: чаепитие, сальса, мастер-классы</li>
+                            <li>Экскурсии: вечерние песнопения, тур по пабам, фототур</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3>Полезно знать</h3>
+                        <ul>
+                            <li>Питание: обед (Пн-Пт), завтрак и ужин в семье</li>
+                            <li>Поддержка: круглосуточная, менеджеры, медсестра</li>
+                            <li>Дополнительно: гостевые спикеры, учебные визиты</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="booklet-footer">
+            <p>Свяжитесь с нами: <a href="tel:+77751072099">+7 775 107 2099</a> | <a href="mailto:aqildos.education@gmail.com">aqildos.education@gmail.com</a></p>
+            <p>Следите за нами:</p>
+            <div class="social-icons">
+                <a href="https://instagram.com/aqildos.bilim"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/+77751072099"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <p>Подпишитесь:</p>
+            <div class="qr-code">
+                <a href="https://instagram.com/aqildos.bilim">
+                    <img src="https://raw.githubusercontent.com/SuleymanovTahir/-/refs/heads/main/img/qr_black.png" alt="QR код Instagram">
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

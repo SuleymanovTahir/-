@@ -7,6 +7,7 @@
     <title>Летние курсы в Оксфорде - Aqildos</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="style.css"> -->
     <style>
         * {
             margin: 0;
@@ -45,17 +46,18 @@
         }
 
         .header .logo {
-            background: url('img/logo/without text/logo_white.png') no-repeat center center;
+            background: url('https://raw.githubusercontent.com/SuleymanovTahir/-/refs/heads/main/img/logo/without text/logo_white.png') no-repeat center center;
             background-size: contain;
             width: 200px;
+            height: 50px;
             display: inline-block;
             text-indent: -9999px;
             transition: background 0.3s ease;
         }
 
         .hero-section {
-            height: 100vh;
-            background: url('img/титульный/школа.png') no-repeat center center/cover;
+            height: 50vh;
+            background: url('https://raw.githubusercontent.com/SuleymanovTahir/-/refs/heads/main/img/титульный/школа.png') no-repeat center center/cover;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -71,43 +73,59 @@
             left: 0;
             width: 100%;
             height: 100%;
-            /* background: rgba(0, 0, 0, 0.5); */
-            background: url('img/титульный/школа.png') no-repeat center center/cover;
+            background: rgba(0, 0, 0, 0.5);
         }
 
         .hero-content {
             position: relative;
             z-index: 1;
+            animation: fadeIn 1s ease-in;
+        }
+
+        .hero-logo {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            opacity: 0.7;
+        }
+
+        .hero-logo img {
+            max-width: 300px;
+            width: 100%;
+            height: auto;
         }
 
         .hero-content h1 {
-            font-size: 48px;
+            font-size: 42px;
             font-weight: 700;
             text-transform: uppercase;
-            margin-bottom: 20px;
             letter-spacing: 2px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            line-height: 50px;
         }
 
         .hero-content .logo-image {
-            max-width: 400px;
+            max-width: 360px;
             width: 100%;
             height: auto;
             margin: 0 auto;
             border-radius: 10px;
-            /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
 
         .main-content {
-            padding: 40px 0 0;
+            padding: 40px 0;
         }
 
         .section {
             margin-bottom: 40px;
-            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('./img/титульный/школа.png') no-repeat center center/cover;
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('https://raw.githubusercontent.com/SuleymanovTahir/-/refs/heads/main/img/титульный/школа.png') no-repeat center center/cover;
             border-radius: 15px;
-            padding: 30px 30px 0 30px;
+            padding: 30px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            animation: slideUp 1s ease-out;
         }
 
         .section-title {
@@ -120,95 +138,153 @@
             -webkit-text-fill-color: transparent;
         }
 
+        /* Enhanced Why Us Section */
         .why-us {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            padding: 20px;
-            background: #f8fafc;
-            border-radius: 10px;
-            border: 2px solid #3cb3b7;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(60, 179, 183, 0.15), rgba(237, 169, 12, 0.15));
+            border-radius: 20px;
+            backdrop-filter: blur(12px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(17, 57, 95, 0.15);
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 1.2s ease-in-out;
+        }
+
+        .why-us::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 20%, rgba(237, 169, 12, 0.25), transparent 70%),
+                radial-gradient(circle at 80% 80%, rgba(60, 179, 183, 0.25), transparent 70%);
+            z-index: 0;
+            pointer-events: none;
         }
 
         .why-us-item {
             position: relative;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(17, 57, 95, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-left: 5px solid #eda90c;
-            background: transparent;
+            padding: 30px;
+            border-radius: 15px;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.75));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 8px 25px rgba(17, 57, 95, 0.1);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
             overflow: hidden;
+            z-index: 1;
         }
 
         .why-us-item::before {
             content: attr(data-number);
             position: absolute;
-            bottom: 10px;
-            right: 10px;
-            font-size: clamp(60px, 10vw, 50px);
-            color: rgba(17, 57, 95, 0.6);
+            bottom: -20px;
+            right: -20px;
+            font-size: clamp(100px, 15vw, 140px);
+            color: rgba(17, 57, 95, 0.1);
             font-weight: 900;
-            z-index: 2;
+            z-index: 0;
             pointer-events: none;
+            transition: transform 0.5s ease;
         }
 
-        .why-us-item h3,
-        .why-us-item p,
-        .why-us-item ul,
-        .why-us-item .quote {
-            position: relative;
-            z-index: 1;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 10px;
-            border-radius: 8px;
+        .why-us-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(60, 179, 183, 0.1), rgba(237, 169, 12, 0.1));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 0;
+        }
+
+        .why-us-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 12px 30px rgba(17, 57, 95, 0.2);
+        }
+
+        .why-us-item:hover::before {
+            transform: scale(1.1);
+        }
+
+        .why-us-item:hover::after {
+            opacity: 1;
         }
 
         .why-us-item h3 {
-            color: #3cb3b7;
-            font-size: 20px;
-            margin-bottom: 10px;
+            color: #11395f;
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 15px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            background: linear-gradient(90deg, #3cb3b7, #eda90c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            z-index: 1;
         }
 
         .why-us-item h3 i {
             color: #eda90c;
+            font-size: 24px;
+            transition: transform 0.3s ease;
+        }
+
+        .why-us-item:hover h3 i {
+            transform: rotate(360deg);
         }
 
         .why-us-item p {
             font-size: 16px;
             color: #333;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
         }
 
         .why-us-item ul {
             list-style: none;
             padding-left: 20px;
+            position: relative;
+            z-index: 1;
         }
 
         .why-us-item ul li {
             position: relative;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             font-size: 15px;
-            color: #555;
+            color: #444;
+            transition: color 0.3s ease;
         }
 
-        .why-us-item ul li:before {
+        .why-us-item ul li::before {
             content: "\f058";
             font-family: "Font Awesome 6 Free";
             font-weight: 900;
-            color: #eda90c;
+            color: #3cb3b7;
             position: absolute;
             left: -25px;
             font-size: 18px;
-            top: -2px;
+            transition: transform 0.3s ease;
         }
 
-        .why-us-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        .why-us-item:hover ul li::before {
+            transform: scale(1.2);
+        }
+
+        .why-us-item:hover ul li {
+            color: #11395f;
         }
 
         .quote {
@@ -232,6 +308,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
+            animation: slideIn 1s ease-out;
         }
 
         .info-block h3 {
@@ -259,7 +336,7 @@
             padding-left: 20px;
         }
 
-        .info-block ul li:before {
+        .info-block ul li::before {
             content: "\f058";
             font-family: "Font Awesome 6 Free";
             font-weight: 900;
@@ -280,6 +357,7 @@
             flex-wrap: wrap;
             gap: 10px;
             justify-content: center;
+            animation: bounceIn 1s ease-out;
         }
 
         .includes span {
@@ -352,9 +430,10 @@
         .footer {
             background: linear-gradient(135deg, #3cb3b7, #eda90c);
             color: white;
-            padding: 40px 20px 0;
+            padding: 40px 20px;
             text-align: center;
             margin-top: 50px;
+            animation: fadeIn 1s ease-in;
             box-shadow: 0 -4px 15px rgba(17, 57, 95, 0.2);
             display: flex;
             justify-content: center;
@@ -413,6 +492,12 @@
             transform: scale(1.05);
         }
 
+        .footer-logo {
+            max-width: 200px;
+            width: 100%;
+            height: auto;
+        }
+
         .qr-code img {
             width: 170px;
             height: 200px;
@@ -427,7 +512,75 @@
             transform: scale(1.1);
         }
 
-        /* Адаптивные стили */
+        .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #eda90c, #3cb3b7);
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            text-transform: uppercase;
+            border-radius: 30px;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(17, 57, 95, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 15px rgba(17, 57, 95, 0.3);
+        }
+
+        /* Animation keyframes */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes bounceIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Responsive adjustments */
         @media (max-width: 1024px) {
             .section {
                 padding: 30px;
@@ -438,18 +591,20 @@
             }
 
             .why-us {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                padding: 20px;
             }
 
-            .why-us-item h3,
-            .info-block h3 {
+            .why-us-item {
+                padding: 25px;
+            }
+
+            .why-us-item h3 {
                 font-size: 20px;
             }
 
             .why-us-item p,
-            .why-us-item ul li,
-            .info-block,
-            .includes {
+            .why-us-item ul li {
                 font-size: 14px;
             }
 
@@ -475,7 +630,7 @@
             }
 
             .main-content {
-                padding: 30px 0 0;
+                padding: 30px 0;
             }
 
             .hero-section {
@@ -492,6 +647,15 @@
 
             .why-us {
                 grid-template-columns: 1fr;
+                padding: 15px;
+            }
+
+            .why-us-item {
+                padding: 20px;
+            }
+
+            .why-us-item::before {
+                font-size: clamp(80px, 12vw, 100px);
             }
 
             .section-title {
@@ -538,22 +702,23 @@
                 font-size: 20px;
             }
 
-            .why-us-item h3,
-            .info-block h3 {
+            .why-us-item {
+                padding: 15px;
+            }
+
+            .why-us-item h3 {
                 font-size: 18px;
             }
 
             .why-us-item p,
-            .why-us-item ul li,
-            .info-block,
-            .includes {
+            .why-us-item ul li {
                 font-size: 13px;
             }
 
             .why-us-item::before {
-                font-size: clamp(40px, 8vw, 30px);
-                bottom: 5px;
-                right: 5px;
+                font-size: clamp(60px, 10vw, 80px);
+                bottom: -10px;
+                right: -10px;
             }
 
             .photo-placeholder {
@@ -575,72 +740,10 @@
             .footer-content ul li {
                 font-size: 14px;
             }
-        }
 
-        /* Стили для печати */
-        @media print {
-            body {
-                background: #fff;
-                color: #000;
-            }
-
-            .header {
-                display: none;
-            }
-
-            .hero-section {
-                height: 100vh;
-                background: url('img/титульный/школа.png') no-repeat center center/cover;
-                position: relative;
-            }
-
-            .hero-overlay {
-                display: none;
-            }
-
-            .section {
-                background: #fff;
-                page-break-inside: avoid;
-            }
-
-            .why-us-item {
-                background: #fff;
-            }
-
-            .why-us-item h3,
-            .why-us-item p,
-            .why-us-item ul,
-            .why-us-item .quote {
-                background: none;
-            }
-
-            .footer {
-                background: none;
-                color: #000;
-                box-shadow: none;
-            }
-        }
-
-        /* Адаптивные изображения для .hero-section */
-        .hero-section {
-            background-image: url('img/hero-1920x1080.jpg');
-        }
-
-        @media (max-width: 1280px) {
-            .hero-section {
-                background-image: url('img/hero-1280x720.jpg');
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero-section {
-                background-image: url('img/hero-768x432.jpg');
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-section {
-                background-image: url('img/hero-480x270.jpg');
+            .cta-button {
+                padding: 10px 20px;
+                font-size: 14px;
             }
         }
     </style>
@@ -657,8 +760,9 @@
         <section class="hero-section">
             <div class="hero-overlay"></div>
             <div class="hero-content">
-                <h1>Летняя языковая школа AQILDOS в Оксфорде</h1>
-                <img src="./img/logo/without text/logo_white.png" alt="Логотип AQILDOS" class="logo-image">
+                <img src="https://raw.githubusercontent.com/SuleymanovTahir/-/refs/heads/main/img/logo/without text/logo_white.png"
+                    alt="Логотип AQILDOS" class="logo-image">
+                <h1>Летняя языковая школа <span><br>в Оксфорде</span></h1>
             </div>
         </section>
 
@@ -677,6 +781,7 @@
                             <li>Мероприятия с приглашёнными спикерами</li>
                             <li>Час езды от Лондона на поезде</li>
                         </ul>
+                        <div class="quote">"Оксфорд — это место, где оживает история знаний!"</div>
                     </div>
                     <div class="why-us-item" data-number="2">
                         <h3><i class="fas fa-thumbs-up"></i> 97% довольных студентов</h3>
@@ -686,6 +791,7 @@
                             <li>Живое, динамичное обучение</li>
                             <li>Поддержка 24/7</li>
                         </ul>
+                        <div class="quote">"Лучший опыт обучения в моей жизни!"</div>
                     </div>
                     <div class="why-us-item" data-number="3">
                         <h3><i class="fas fa-lightbulb"></i> Инновации в обучении</h3>
@@ -695,6 +801,7 @@
                             <li>Практика разговорного английского</li>
                             <li>Активные задания и выездные занятия</li>
                         </ul>
+                        <div class="quote">"Уроки, которые вдохновляют!"</div>
                     </div>
                     <div class="why-us-item" data-number="4">
                         <h3><i class="fas fa-globe"></i> Международная атмосфера</h3>
@@ -704,6 +811,7 @@
                             <li>Погружение в другие культуры</li>
                             <li>Английский в естественной среде</li>
                         </ul>
+                        <div class="quote">"Место, где границы исчезают!"</div>
                     </div>
                     <div class="why-us-item" data-number="5">
                         <h3><i class="fas fa-camera"></i> Яркие активности</h3>
@@ -713,6 +821,7 @@
                             <li>Экскурсии в Оксфорд и Лондон</li>
                             <li>Мини-гольф, квесты, кино</li>
                         </ul>
+                        <div class="quote">"Каждый день — новое приключение!"</div>
                     </div>
                     <div class="why-us-item" data-number="6">
                         <h3><i class="fas fa-user-shield"></i> Всегда рядом</h3>
@@ -722,6 +831,7 @@
                             <li>Сопровождение на всех этапах</li>
                             <li>Медицинская поддержка</li>
                         </ul>
+                        <div class="quote">"Чувствуешь себя как дома!"</div>
                     </div>
                 </div>
             </div>
@@ -741,7 +851,8 @@
                     <h3>Проживание</h3>
                     <ul>
                         <li>Варианты: резиденция колледжа или принимающая семья</li>
-                        <li>В резиденции: одноместные, двухместные или трехместные комнаты с общей или личной ванной</li>
+                        <li>В резиденции: одноместные, двухместные или трехместные комнаты с общей или личной ванной
+                        </li>
                         <li>В семье: одноместная комната с общей или личной ванной</li>
                         <li>Коммунальные зоны: общие комнаты, небольшие кухни, зеленые пространства</li>
                         <li>Мальчики и девочки живут отдельно</li>
@@ -749,11 +860,11 @@
                         <li>Бесплатный Wi-Fi</li>
                     </ul>
                     <div class="students-gallery">
-                        <img src="./img/accomodation/junior/St-Clares-Oxford-August-2023-Navy-Studios-School-Photography074of212-1.jpg"
+                        <img src="https://raw.githubusercontent.com/SuleymanovTahir/-/refs/heads/main/img/accomodation/junior/St-Clares-Oxford-August-2023-Navy-Studios-School-Photography074of212-1.jpg"
                             alt="Фото комнаты 1" class="photo-placeholder">
-                        <img src="./img/accomodation/teenagers/St-Clares-Oxford-June-2023-Navy-Studios-School-Photography-054of250.jpg"
+                        <img src="https://raw.githubusercontent.com/SuleymanovTahir/-/refs/heads/main/img/accomodation/teenagers/St-Clares-Oxford-June-2023-Navy-Studios-School-Photography-054of250.jpg"
                             alt="Фото комнаты 2" class="photo-placeholder">
-                        <img src="./img/accomodation/teenagers/St-Clares-Oxford-June-2023-Navy-Studios-School-Photography-013of250.jpg"
+                        <img src="https://raw.githubusercontent.com/SuleymanovTahir/-/refs/heads/main/img/accomodation/teenagers/St-Clares-Oxford-June-2023-Navy-Studios-School-Photography-013of250.jpg"
                             alt="Фото комнаты 3" class="photo-placeholder">
                     </div>
                 </div>
@@ -798,11 +909,14 @@
                         <li>Для "Молодых лидеров": выезд на природу с кемпингом</li>
                     </ul>
                     <div class="students-gallery">
-                        <img src="./img/развлечения/St-Clares-Oxford-August-2023-Navy-Studios-School-Photography035of212-2.jpg"
+                        <img src="https://raw.githubusercontent.com/SuleymanovTahir/-/refs/heads/main/img/развлечения/St-Clares-Oxford-August-2023-Navy-Studios-School-Photography035of212-2.jpg"
                             alt="Фото активности 1" class="photo-placeholder">
-                        <img src="./img/развлечения/table-tennis.png" alt="Фото активности 2" class="photo-placeholder">
-                        <img src="./img/развлечения/tennis-pitch.png" alt="Фото активности 3" class="photo-placeholder">
-                        <img src="./img/развлечения/теннис.jpg" alt="Фото активности 4" class="photo-placeholder">
+                        <img src="https://raw.githubusercontent.com/SuleymanovTahir/-/refs/heads/main/img/развлечения/table-tennis.png"
+                            alt="Фото активности 2" class="photo-placeholder">
+                        <img src="https://raw.githubusercontent.com/SuleymanovTahir/-/refs/heads/main/img/развлечения/tennis-pitch.png"
+                            alt="Фото активности 3" class="photo-placeholder">
+                        <img src="https://raw.githubusercontent.com/SuleymanovTahir/-/refs/heads/main/img/развлечения/теннис.jpg"
+                            alt="Фото активности 4" class="photo-placeholder">
                     </div>
                 </div>
                 <div class="info-block">
@@ -824,11 +938,13 @@
                                 href="https://www.blenheimpalace.com" target="_blank">дворец Бленхейм</a></li>
                     </ul>
                     <div class="students-gallery">
-                        <img src="./img/Достопримечательности/big ben.jpg" alt="Big Ben" class="photo-placeholder">
-                        <img src="./img/Достопримечательности/замок Уорик, дворец Бленхейм.webp" alt="Warwick Castle"
-                            class="photo-placeholder">
-                        <img src="./img/Достопримечательности/crouse temza.webp" alt="Thames Cruise"
-                            class="photo-placeholder">
+                        <!-- <img src="https://raw.githubusercontent.com/SuleymanovTahir/-/refs/heads/main/img/достопримечательности/big ben.jpg" alt="Big Ben" class="photo-placeholder"> -->
+                        <img src="https://raw.githubusercontent.com/SuleymanovTahir/-/refs/heads/main/img/достопримечательности/big%20ben.jpg"
+                            alt="Big Ben" class="photo-placeholder">
+                        <img src="https://raw.githubusercontent.com/SuleymanovTahir/-/refs/heads/main/img/достопримечательности/замок%20Уорик%2C%20дворец%20Бленхейм.webp"
+                            alt="Warwick Castle" class="photo-placeholder">
+                        <img src="https://raw.githubusercontent.com/SuleymanovTahir/-/refs/heads/main/img/достопримечательности/crouse%20temza.webp"
+                            alt="Thames Cruise" class="photo-placeholder">
                     </div>
                 </div>
                 <div class="info-block">
@@ -843,9 +959,9 @@
                         <li>Дополнительно: гостевые спикеры, учебные визиты, сессии о поступлении в университеты</li>
                     </ul>
                     <div class="students-gallery">
-                        <img src="./img/столовая/Happy-Junior-Student-Eating-Lunch-in-Summer.jpg" alt="Фото столовой 1"
-                            class="photo-placeholder">
-                        <img src="./img/столовая/St-Clares-Oxford-August-2023-Navy-Studios-School-Photography080of212.jpg"
+                        <img src="https://raw.githubusercontent.com/SuleymanovTahir/-/refs/heads/main/img/столовая/Happy-Junior-Student-Eating-Lunch-in-Summer.jpg"
+                            alt="Фото столовой 1" class="photo-placeholder">
+                        <img src="https://raw.githubusercontent.com/SuleymanovTahir/-/refs/heads/main/img/столовая/St-Clares-Oxford-August-2023-Navy-Studios-School-Photography080of212.jpg"
                             alt="Фото столовой 2" class="photo-placeholder">
                     </div>
                 </div>
@@ -865,7 +981,8 @@
                     <h3>Проживание</h3>
                     <ul>
                         <li>Варианты: резиденция колледжа или принимающая семья</li>
-                        <li>В резиденции: одноместные, двухместные или трехместные комнаты с общей или личной ванной</li>
+                        <li>В резиденции: одноместные, двухместные или трехместные комнаты с общей или личной ванной
+                        </li>
                         <li>В семье: одноместная комната с общей или личной ванной</li>
                         <li>Коммунальные зоны: общие комнаты, небольшие кухни, зеленые пространства</li>
                         <li>Мальчики и девочки живут отдельно</li>
@@ -873,11 +990,12 @@
                         <li>Бесплатный Wi-Fi</li>
                     </ul>
                     <div class="students-gallery">
-                        <img src="./img/accomodation/junior/St-Clares-Oxford-August-2023-Navy-Studios-School-Photography078of212.jpg"
+                        <img src="https://raw.githubusercontent.com/SuleymanovTahir/-/refs/heads/main/img/accomodation/junior/St-Clares-Oxford-August-2023-Navy-Studios-School-Photography078of212.jpg"
                             alt="Фото комнаты 1" class="photo-placeholder">
-                        <img src="./img/accomodation/teenagers/St-Clares-Oxford-June-2023-Navy-Studios-School-Photography-142of250-1.jpg"
+                        <img src="https://raw.githubusercontent.com/SuleymanovTahir/-/refs/heads/main/img/accomodation/teenagers/St-Clares-Oxford-June-2023-Navy-Studios-School-Photography-142of250-1.jpg"
                             alt="Фото комнаты 2" class="photo-placeholder">
-                        <img src="./img/титульный/школа2.jpeg" alt="Фото комнаты 3" class="photo-placeholder">
+                        <img src="https://raw.githubusercontent.com/SuleymanovTahir/-/refs/heads/main/img/титульный/школа2.jpeg"
+                            alt="Фото комнаты 3" class="photo-placeholder">
                     </div>
                 </div>
                 <div class="info-block">
@@ -926,7 +1044,8 @@
                         <li>Творчество: поделки</li>
                         <li>Развлечения: квизы, настольный теннис, вечеринка с чаем, игровые вечера, караоке, танцы,
                             ночь кино, надувной бег с банджи</li>
-                        <li>Для "Искусство и цифровой дизайн": работа в студии с темным помещением и печатным прессом</li>
+                        <li>Для "Искусство и цифровой дизайн": работа в студии с темным помещением и печатным прессом
+                        </li>
                         <li>Для "Бизнес в Оксфорде": посещение местных предприятий</li>
                     </ul>
                 </div>
@@ -949,11 +1068,12 @@
                                 href="https://www.blenheimpalace.com" target="_blank">дворец Бленхейм</a></li>
                     </ul>
                     <div class="students-gallery">
-                        <img src="./img/Достопримечательности/tower of london.webp" alt="Tower of London"
-                            class="photo-placeholder">
-                        <img src="./img/Достопримечательности/Виндзорский замок.jpg" alt="Windsor Castle"
-                            class="photo-placeholder">
-                        <img src="./img/Достопримечательности/harrods.jpg" alt="Harrods" class="photo-placeholder">
+                        <img src="https://raw.githubusercontent.com/SuleymanovTahir/-/refs/heads/main/img/достопримечательности/tower of london.webp"
+                            alt="Tower of London" class="photo-placeholder">
+                        <img src="https://raw.githubusercontent.com/SuleymanovTahir/-/refs/heads/main/img/достопримечательности/Виндзорский замок.jpg"
+                            alt="Windsor Castle" class="photo-placeholder">
+                        <img src="https://raw.githubusercontent.com/SuleymanovTahir/-/refs/heads/main/img/достопримечательности/harrods.jpg"
+                            alt="Harrods" class="photo-placeholder">
                     </div>
                 </div>
                 <div class="info-block">
@@ -992,16 +1112,16 @@
                         <li>Бесплатный Wi-Fi</li>
                     </ul>
                     <div class="students-gallery">
-                        <img src="./img/accomodation/adults/177-900x642-bedroom.jpg" alt="Фото комнаты 1"
-                            class="photo-placeholder">
-                        <img src="./img/accomodation/adults/177-900x642-lounge.jpg" alt="Фото комнаты 2"
-                            class="photo-placeholder">
-                        <img src="./img/accomodation/adults/DSC_0579v2.jpg" alt="Фото комнаты 3"
-                            class="photo-placeholder">
-                        <img src="./img/accomodation/adults/Logan-Lounge-900x642-1.jpg" alt="Фото комнаты 4"
-                            class="photo-placeholder">
-                        <img src="./img/accomodation/adults/STCL_5784-900x642-1.jpg" alt="Фото комнаты 5"
-                            class="photo-placeholder">
+                        <img src="https://raw.githubusercontent.com/SuleymanovTahir/-/refs/heads/main/img/accomodation/adults/177-900x642-bedroom.jpg"
+                            alt="Фото комнаты 1" class="photo-placeholder">
+                        <img src="https://raw.githubusercontent.com/SuleymanovTahir/-/refs/heads/main/img/accomodation/adults/177-900x642-lounge.jpg"
+                            alt="Фото комнаты 2" class="photo-placeholder">
+                        <img src="https://raw.githubusercontent.com/SuleymanovTahir/-/refs/heads/main/img/accomodation/adults/DSC_0579v2.jpg"
+                            alt="Фото комнаты 3" class="photo-placeholder">
+                        <img src="https://raw.githubusercontent.com/SuleymanovTahir/-/refs/heads/main/img/accomodation/adults/Logan-Lounge-900x642-1.jpg"
+                            alt="Фото комнаты 4" class="photo-placeholder">
+                        <img src="https://raw.githubusercontent.com/SuleymanovTahir/-/refs/heads/main/img/accomodation/adults/STCL_5784-900x642-1.jpg"
+                            alt="Фото комнаты 5" class="photo-placeholder">
                     </div>
                 </div>
                 <div class="info-block">
@@ -1117,12 +1237,12 @@
                                 href="https://www.blenheimpalace.com" target="_blank">дворец Бленхейм</a></li>
                     </ul>
                     <div class="students-gallery">
-                        <img src="./img/Достопримечательности/uk parlament.webp" alt="Parliament"
-                            class="photo-placeholder">
-                        <img src="./img/Достопримечательности/замок Уорик, дворец Бленхейм.webp"
+                        <img src="https://raw.githubusercontent.com/SuleymanovTahir/-/refs/heads/main/img/достопримечательности/uk parlament.webp"
+                            alt="Parliament" class="photo-placeholder">
+                        <img src="https://raw.githubusercontent.com/SuleymanovTahir/-/refs/heads/main/img/достопримечательности/замок Уорик, дворец Бленхейм.webp"
                             alt="Warwick Castle and Blenheim Palace" class="photo-placeholder">
-                        <img src="./img/Достопримечательности/Covent Garden.jpg" alt="Covent Garden"
-                            class="photo-placeholder">
+                        <img src="https://raw.githubusercontent.com/SuleymanovTahir/-/refs/heads/main/img/достопримечательности/Covent Garden.jpg"
+                            alt="Covent Garden" class="photo-placeholder">
                     </div>
                 </div>
                 <div class="info-block">
@@ -1137,6 +1257,16 @@
                     </ul>
                 </div>
             </div>
+
+            <!-- Галерея зданий -->
+            <!-- <div class="section gallery-section">
+                <div class="section-title">Фото зданий</div>
+                <div class="photo-gallery">
+                    <img src="https://raw.githubusercontent.com/SuleymanovTahir/-/refs/heads/main/img/кабинеты/junior/International-Junior-Summer-Students-in-Classroom.jpg" alt="Фото здания 1" class="photo-placeholder">
+                    <img src="https://raw.githubusercontent.com/SuleymanovTahir/-/refs/heads/main/img/кабинеты/teenagers/0J1A6572.jpg" alt="Фото здания 2" class="photo-placeholder">
+                    <img src="https://raw.githubusercontent.com/SuleymanovTahir/-/refs/heads/main/img/кабинеты/teenagers/International-Junior-Summer-Students-in-Classroom.jpg" alt="Фото здания 3" class="photo-placeholder">
+                </div>
+            </div> -->
         </main>
 
         <!-- Футер (Footer) -->
@@ -1149,7 +1279,8 @@
                         <li>Email: <a href="mailto:aqildos.education@gmail.com">aqildos.education@gmail.com</a></li>
                     </ul>
                     <div class="qr-code">
-                        <a href="https://instagram.com/aqildos.bilim" target="_blank"><img src="./img/qr_black.png"
+                        <a href="https://instagram.com/aqildos.bilim" target="_blank"><img
+                                src="https://raw.githubusercontent.com/SuleymanovTahir/-/refs/heads/main/img/qr_black.png"
                                 alt="QR код"></a>
                     </div>
                 </div>
@@ -1157,51 +1288,6 @@
         </footer>
     </div>
 
-    <!-- Скрипты -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <script>
-        window.addEventListener('scroll', function () {
-            const header = document.querySelector('.header');
-            const main = document.querySelector('.main-content');
-            const mainPosition = main.getBoundingClientRect().top;
-
-            if (mainPosition <= 0) {
-                header.classList.add('visible');
-            } else {
-                header.classList.remove('visible');
-            }
-        });
-
-        // Функция для сохранения секции как изображения
-        function saveSectionAsImage(sectionSelector, fileName) {
-            const section = document.querySelector(sectionSelector);
-            html2canvas(section, { scale: 2 }).then(canvas => {
-                const link = document.createElement('a');
-                link.download = fileName;
-                link.href = canvas.toDataURL('image/jpeg', 0.95);
-                link.click();
-            });
-        }
-
-        // Сохранение первой страницы (hero-section)
-        function saveHeroSection() {
-            saveSectionAsImage('.hero-section', 'hero-section.jpg');
-        }
-
-        // Сохранение всех секций
-        function saveAllSections() {
-            saveSectionAsImage('.hero-section', 'hero-section.jpg');
-            saveSectionAsImage('.section:nth-child(1)', 'why-us.jpg');
-            saveSectionAsImage('.section:nth-child(2)', 'juniors.jpg');
-            saveSectionAsImage('.section:nth-child(3)', 'teenagers.jpg');
-            saveSectionAsImage('.section:nth-child(4)', 'adults.jpg');
-            saveSectionAsImage('.footer', 'footer.jpg');
-        }
-    </script>
-    <!-- <button onclick="saveHeroSection()"
-        style="position: fixed; bottom: 60px; right: 20px; padding: 10px 20px; background: #3cb3b7; color: white; border: none; border-radius: 5px; cursor: pointer;">Сохранить первую страницу</button>
-    <button onclick="saveAllSections()"
-        style="position: fixed; bottom: 20px; right: 20px; padding: 10px 20px; background: #3cb3b7; color: white; border: none; border-radius: 5px; cursor: pointer;">Сохранить все страницы</button> -->
 </body>
 
 </html>
